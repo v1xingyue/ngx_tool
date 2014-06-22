@@ -1,7 +1,7 @@
 ngx_tool
 ========
 
-A tool to make nginx modules.
+A tool to make nginx modules.  It will become very easy to make nginx modules by this tool.
 
 <pre><code>
 $./ngx_tool hello
@@ -16,3 +16,7 @@ Make source file hello/hello.c
 Ok . Now you have create nginx module hello 
 
 </code></pre>
+
+========
+
+[istrone][http://istrone.com]
