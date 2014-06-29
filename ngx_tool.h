@@ -14,8 +14,13 @@ void make_source(char *module_name) ;
 void make_welcome(char *module_name) ;
 void make_compile(char *module_name) ;
 
-#ifndef SRC_DIR
-#define SRC_DIR ""
+#ifndef src_dir
+#define src_dir ""
 #endif
+
+#ifndef out_dir
+#define out_dir ""
+#endif
+
 
 #endif
