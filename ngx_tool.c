@@ -9,6 +9,7 @@ void make_dir(char *module_name) ;
 void make_config(char *module_name) ;
 void make_source(char *module_name) ;
 void make_welcome(char *module_name) ;
+void make_compile(char *module_name) ;
 
 int main(int argc, char **argv){
 	if(argc != 2 ){
@@ -25,6 +26,7 @@ void make_module(char *module_name) {
 		make_dir,
 		make_config,
 		make_source,
+		make_compile,
 		make_welcome,
 		NULL	
 	};
@@ -70,6 +72,22 @@ void make_source(char* module_name) {
 	fwrite(buf,strlen(buf),1,fp);
 	fclose(fp);
 }
+
+void make_compile(char* module_name) {
+	printf("Make compile.sh %s/comile.sh \n",module_name);
+	char buf[4096] = {0}; 
+	FILE *fp = NULL ;
+	char new_file_name[128];
+	fp = fopen("tpls/compile.tpl","r"); 
+	fread(buf,4096,1,fp);
+	fclose(fp);
+	replace_str(buf,"{{module_name}}",module_name);	
+	sprintf(new_file_name,"%s/compile.sh",module_name);
+	fp = fopen(new_file_name,"w+"); 
+	fwrite(buf,strlen(buf),1,fp);
+	fclose(fp);
+}
+
 
 void make_welcome(char *module_name) {
 	printf("\n");

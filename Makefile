@@ -5,4 +5,4 @@ ngx_tool:ngx_tool.o
 ngx_tool.o:ngx_tool.c
 	gcc -c -o ngx_tool.o ngx_tool.c
 clean:
-	rm ngx_tool
+	rm ngx_tool *.o
