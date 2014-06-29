@@ -1,6 +1,10 @@
 CFLAGS=-g 
 
+# Change this variables as your environment.
+#
+# Nginx source dir
 src_dir=/Users/xingyue/outcode/source/nginx-1.6.0
+# The module output dir
 out_dir=/Users/xingyue/outcode/ngx_modules
 
 MACRO=-D src_dir=\"${src_dir}\" -D out_dir=\"${out_dir}\"
