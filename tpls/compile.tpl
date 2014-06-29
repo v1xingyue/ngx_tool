@@ -1,7 +1,9 @@
 #!/bin/sh
 
-module_dir=$(pwd)
-cd  /usr/home/xingyue/source/nginx-1.6.0/
+other_module=""
+m_module=" --add-module=$(pwd) $other_module"
+
+cd  {{src_dir}}
 prefix=/data1/nginx_play
 ccopt=" --with-cc-opt=' -finstrument-functions '";
 rm -rf ${prefix}/{client_body_temp,fastcgi_temp,logs,proxy_temp,sbin,scgi_temp,uwsgi_temp}

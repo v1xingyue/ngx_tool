@@ -1,17 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h> 
-
-void replace_str(char*, char*, char*);
-void make_module(char *module_name) ;
-void make_dir(char *module_name) ;
-void make_config(char *module_name) ;
-void make_source(char *module_name) ;
-void make_welcome(char *module_name) ;
-void make_compile(char *module_name) ;
+#include "ngx_tool.h"
 
 int main(int argc, char **argv){
+	printf("TEST MAKEFILE DEFINE %s\n",SRC_DIR);
 	if(argc != 2 ){
 		printf("Usage : ./ngx_tool <module_name>\n");
 		return 1;	
@@ -81,7 +71,7 @@ void make_compile(char* module_name) {
 	fp = fopen("tpls/compile.tpl","r"); 
 	fread(buf,4096,1,fp);
 	fclose(fp);
-	replace_str(buf,"{{module_name}}",module_name);	
+	replace_str(buf,"{{src_dir}}",SRC_DIR);	
 	sprintf(new_file_name,"%s/compile.sh",module_name);
 	fp = fopen(new_file_name,"w+"); 
 	fwrite(buf,strlen(buf),1,fp);
