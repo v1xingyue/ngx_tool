@@ -4,6 +4,7 @@ ngx_tool
 A tool to make nginx modules.  It will become very easy to make nginx modules by this tool.
 
 <pre><code>
+$ git clone https://github.com/qixingyue/ngx_tool.git
 $./ngx_tool hello
 
 ^_^  Hello. Begin make module hello 
