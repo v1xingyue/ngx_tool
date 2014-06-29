@@ -15,11 +15,11 @@ void make_welcome(char *module_name) ;
 void make_compile(char *module_name) ;
 
 #ifndef src_dir
-#define src_dir ""
+#define src_dir "./"
 #endif
 
 #ifndef out_dir
-#define out_dir ""
+#define out_dir "./"
 #endif
 
 
