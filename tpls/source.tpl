@@ -19,7 +19,6 @@ static char* command_router(ngx_conf_t *cf, ngx_command_t *cmd, void *conf) {
 	return NGX_CONF_OK;	
 }
 
-static ngx_int_t {{module_name}}_handler(ngx_http_request_t*);
 
 static ngx_command_t module_commands[] = {
 	{
