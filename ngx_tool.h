@@ -7,12 +7,14 @@
 #include <sys/stat.h> 
 
 void replace_str(char*, char*, char*);
-void make_module(char *module_name) ;
-void make_dir(char *module_name) ;
-void make_config(char *module_name) ;
-void make_source(char *module_name) ;
-void make_welcome(char *module_name) ;
-void make_compile(char *module_name) ;
+void make_module(char *) ;
+void make_dir(char *) ;
+void make_config(char *) ;
+void make_source(char *) ;
+void make_welcome(char *) ;
+void make_compile(char *) ;
+void make_makefile(char *) ;
+void parse_file(char *, char* ,char** ,int );
 
 #ifndef src_dir
 #define src_dir "./"
