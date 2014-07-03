@@ -1,6 +1,5 @@
 #include "ngx_tool.h"
 
-
 int main(int argc, char **argv){
 	if(argc != 2 ){
 		printf("Usage : ./ngx_tool <module_name>\n");
@@ -21,8 +20,7 @@ void make_module(char *module_name) {
 		make_welcome,
 		NULL	
 	};
-	void (**current)(char*);
-	current = work_funs;
+	void (**current)(char*) = work_funs;
 	do {
 		(*current)(module_name);
 		current++;	
@@ -34,22 +32,6 @@ void make_dir(char* module_name) {
 	sprintf(dir_name,"%s/%s",out_dir,module_name);
 	printf("Make dir %s \n",dir_name);
 	mkdir(dir_name,0755);
-}
-
-void parse_file(char *tpl_name, char* to_file,char** replace_argv,int replace_argc){
-	char buf[4096] = {0}; 
-	FILE *fp = NULL ;
-	char new_file_name[128];
-	int i = 0;
-	fp = fopen(tpl_name,"r"); 
-	fread(buf,4096,1,fp);
-	fclose(fp);
-	for(;i < (replace_argc - 1) ; i += 2){
-		replace_str(buf,replace_argv[i],replace_argv[i+1]);	
-	}
-	fp = fopen(to_file,"w+"); 
-	fwrite(buf,strlen(buf),1,fp);
-	fclose(fp);
 }
 
 void make_config(char* module_name) {
@@ -91,6 +73,22 @@ void make_welcome(char *module_name) {
 	printf("^_^ Ok . Now you have create nginx module %s \n",module_name);
 	printf("Ok . Now you have create nginx module %s \n",module_name);
 	printf("\n");
+}
+
+void parse_file(char *tpl_name, char* to_file,char** replace_argv,int replace_argc){
+	char buf[4096] = {0}; 
+	FILE *fp = NULL ;
+	char new_file_name[128];
+	int i = 0;
+	fp = fopen(tpl_name,"r"); 
+	fread(buf,4096,1,fp);
+	fclose(fp);
+	for(;i < (replace_argc - 1) ; i += 2){
+		replace_str(buf,replace_argv[i],replace_argv[i+1]);	
+	}
+	fp = fopen(to_file,"w+"); 
+	fwrite(buf,strlen(buf),1,fp);
+	fclose(fp);
 }
 
 void replace_str(char* content, char *val_name, char *value){
