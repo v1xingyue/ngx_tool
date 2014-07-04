@@ -1,6 +1,14 @@
 #ifndef XY_NGX_TOOL_H
 #define XY_NGX_TOOL_H
 
+#ifndef src_dir
+#define src_dir "./"
+#endif
+
+#ifndef out_dir
+#define out_dir "./"
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,14 +23,5 @@ void make_welcome(char *) ;
 void make_compile(char *) ;
 void make_makefile(char *) ;
 void parse_file(char *, char* ,char** ,int );
-
-#ifndef src_dir
-#define src_dir "./"
-#endif
-
-#ifndef out_dir
-#define out_dir "./"
-#endif
-
 
 #endif

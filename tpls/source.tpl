@@ -6,8 +6,6 @@ typedef struct {
 	ngx_str_t ecdata;
 } {{module_name}}_loc_conf_t;
 
-
-
 static ngx_int_t {{module_name}}_handler(ngx_http_request_t *);
 static void* {{module_name}}_create_loc_conf(ngx_conf_t *cf);
 
@@ -18,7 +16,6 @@ static char* command_router(ngx_conf_t *cf, ngx_command_t *cmd, void *conf) {
 	ngx_conf_set_str_slot(cf,cmd,conf);
 	return NGX_CONF_OK;	
 }
-
 
 static ngx_command_t module_commands[] = {
 	{
