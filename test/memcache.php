@@ -11,12 +11,17 @@ function get($k){
 	$send = 'get ' . $k . "\r\n";
 	$str = send_memcached($send);
 	echo $str . "\n";
-	//var_dump(unserialize($str));
 }
 
+function del($k){
+	$send = 'delete ' . $k . "\r\n";
+	$str = send_memcached($send);
+	echo $str . "\n";
+}
 $net_handle = fsockopen('localhost',11211);
 set('A','Hello world', 100);
 get('A');
+del('A');
 fclose($net_handle);
 
 function send_memcached($send){
