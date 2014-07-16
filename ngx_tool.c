@@ -1,17 +1,26 @@
 #include "ngx_tool.h"
 
 int main(int argc, char **argv){
-	if(argc != 2 ){
+	char *module_type;
+	if(argc < 2 ){
 		printf("Usage : ./ngx_tool <module_name>\n");
 		return 1;	
 	}
+
+	if(argc >= 3){
+		module_type = argv[2];	
+	} else {
+		module_type = "handler";
+	}
+
 	printf("\n^_^  Hello. Begin make module %s \n\n",argv[1]);
-	make_module(argv[1]);
+	make_module(argv[1],argv[2]);
 	return 0;
 }
 
-void make_module(char *module_name) {
-	void (*work_funs[])(char*) = {
+void make_module(char *module_name, char* module_type) {
+
+	void (*work_funs[])(char*) = 	{
 		make_dir,
 		make_config,
 		make_source,
@@ -20,6 +29,8 @@ void make_module(char *module_name) {
 		make_welcome,
 		NULL	
 	};
+
+
 	void (**current)(char*) = work_funs;
 	do {
 		(*current)(module_name);

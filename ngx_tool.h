@@ -15,7 +15,7 @@
 #include <sys/stat.h> 
 
 void replace_str(char*, char*, char*);
-void make_module(char *) ;
+void make_module(char *, char*) ;
 void make_dir(char *) ;
 void make_config(char *) ;
 void make_source(char *) ;
