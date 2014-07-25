@@ -10,7 +10,6 @@ void parse_file(char** b){
 int main(int argc, char** argv){
 	char *n[] = {"MMMMMMM","NNNNNNNN","AAAAA","BBBBBB",NULL};
 	parse_file((char**) &n);
-	
 	return 0;
 }
 

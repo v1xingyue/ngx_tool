@@ -76,7 +76,7 @@ void make_makefile(char* module_name) {
 	char new_file_name[128];
 	char *replace_args[] = {"{{src_dir}}",src_dir,"{{module_name}}",module_name};
 	sprintf(new_file_name,"%s/%s/Makefile",out_dir,module_name);
-	parse_file("tpls/Makefile.tpl",new_file_name,replace_args,2);
+	parse_file("tpls/Makefile.tpl",new_file_name,replace_args,4);
 }
 
 void make_welcome(char *module_name) {

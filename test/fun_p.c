@@ -15,7 +15,6 @@ void f_4(char* a){
 
 int main(int argc, char** argv){
 
-	
 	void (*p[4])(char*) ;
 
 	p[0] = f_1;
